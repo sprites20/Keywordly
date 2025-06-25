@@ -1,24 +1,22 @@
-import logo from './logo.svg';
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import BoxList from './BoxList';
+import JobViewer from './JobViewer'; // a component that shows job by ?id
 import './App.css';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div className="App">
+        <div className="app-container">
+          <h1>Job Listings</h1>
+          <Routes>
+            <Route path="/" element={<BoxList />} />
+            <Route path="/job" element={<JobViewer />} /> {/* e.g., /job?id=123 */}
+          </Routes>
+        </div>
+      </div>
+    </Router>
   );
 }
 
