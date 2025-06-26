@@ -1,0 +1,189 @@
+.box-list-container {
+    margin: 20px auto;
+    width: 100%;
+    max-width: 900px; /* Increased max-width for more content */
+    padding: 30px;
+    background-color: #f9f9f9; /* Lighter background */
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  }
+  
+  .application-form {
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 25px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  }
+
+  .application-form h2 {
+    font-size: 1.8em;
+    color: #333;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+
+  .form-group {
+    margin-bottom: 15px;
+    text-align: left;
+  }
+
+  .form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #555;
+  }
+
+  .form-group input[type="text"],
+  .form-group input[type="number"],
+  .form-group textarea {
+    width: calc(100% - 20px); /* Account for padding */
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1em;
+    box-sizing: border-box; /* Include padding in width */
+  }
+
+  .form-group textarea {
+    resize: vertical;
+    min-height: 80px;
+  }
+
+  .overall-drop-area {
+    border: 2px dashed #90caf9; /* Dashed border for overall drop area */
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    color: #666;
+    font-size: 1.1em;
+    background-color: #f0f8ff; /* Light background for drop area */
+    margin-bottom: 20px; /* Space between drop area and job list */
+    cursor: pointer;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+  }
+
+  .overall-drop-area:hover {
+    background-color: #e6f3ff; /* Lighter background on hover */
+    border-color: #42a5f5; /* Darker border on hover */
+  }
+
+  .overall-drop-area p {
+    margin: 10px 0; /* Space around 'or' text */
+  }
+
+  .select-file-button {
+    background-color: #1976d2; /* Blue button */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.2s ease;
+  }
+
+  .center-button-container {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .match-jobs-button{
+    background-color: #1976d2; /* Blue button */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.2s ease;
+  }
+
+  .select-file-button:hover {
+    background-color: #1565c0; /* Darker blue on hover */
+  }
+
+  .overall-uploaded-file-info {
+    margin-top: 10px;
+    font-size: 0.9em;
+    color: #388e3c; /* Green color for uploaded file info */
+    font-weight: bold;
+  }
+
+  .boxes-frame {
+    display: grid;
+    grid-template-columns: 1fr; /* Single column */
+    gap: 25px; /* Increased gap */
+    max-height: 1000px; /* Increased max-height */
+    overflow-y: auto;
+    padding: 20px; /* Increased padding */
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    background-color: #ffffff;
+  }
+  
+  .box {
+    background-color: #e3f2fd; /* Light blue background for job cards */
+    border-radius: 10px;
+    padding: 20px;
+    text-align: left; /* Align text to left for readability */
+    color: #333; /* Darker text color */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    cursor: pointer; /* Indicate clickable */
+  }
+  
+  .box:hover {
+    transform: translateY(-8px); /* More pronounced lift effect */
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.2);
+  }
+
+  .job-title {
+    font-size: 1.4em;
+    font-weight: bold;
+    color: #1976d2; /* Blue color for titles */
+    margin-bottom: 10px;
+  }
+
+  .job-description {
+    font-size: 0.9em;
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 10px;
+  }
+
+  .job-location {
+    font-size: 0.85em;
+    color: #777;
+    font-style: italic;
+  }
+  
+  .pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 25px;
+    font-weight: bold;
+    gap: 15px;
+  }
+  
+  .pagination button {
+    padding: 10px 20px;
+    border: none;
+    background-color: #42a5f5; /* Blue button color */
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+  }
+  
+  .pagination button:hover {
+    background-color: #2196f3;
+  }
+  
+  .pagination button:disabled {
+    background-color: #bdbdbd;
+    cursor: not-allowed;
+  }
+  
