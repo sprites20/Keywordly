@@ -1,0 +1,61 @@
+.job-viewer-container {
+    max-width: 600px;
+    margin: 2rem auto;
+    padding: 2rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #fafafa;
+  }
+  
+  .job-viewer-title {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: #333;
+  }
+  
+  .job-viewer-label {
+    font-weight: 600;
+    color: #555;
+  }
+  
+  .job-viewer-text {
+    margin-bottom: 1rem;
+    line-height: 1.5;
+    color: #444;
+  }
+  
+  mark {
+    background-color: yellow;
+    font-weight: bold;
+  }
+
+  .ai-recommendation-box {
+    margin-top: 2rem;
+    padding: 1.5rem;
+    border: 1px solid #ccc;
+    border-radius: 12px;
+    background-color: #f9f9f9;
+  }
+  
+  .ai-recommendation-box h2 {
+    margin-bottom: 1rem;
+  }
+  
+  .ai-section {
+    margin-bottom: 0.75rem;
+  }
+  
+  .ai-section summary {
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1.05rem;
+  }
+  
+  .ai-section p {
+    margin-left: 1rem;
+    margin-top: 0.5rem;
+    color: #444;
+  }
+  
