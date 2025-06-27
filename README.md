@@ -11,7 +11,7 @@ Running the demo so no installation would be needed.
 
 # RUNNING STEPS
 For compiling the React app it needs npm or Vite which can take a while to download so we are creating a separate repository for the compiled/built version.
-You can clone this repository and extract, then open the build folder and run index.js to open the website.
+You can clone this repository and extract, then open the build folder and run index.html to open the website.
 
 But for cloning just download this repository, extract it then open CMD after installing npm:
 You can install npm with the Node.js package by following the instructions here. Or by installing with the installer.
