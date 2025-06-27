@@ -18,9 +18,10 @@ You can install npm with the Node.js package by following the instructions here.
 
 After installing, open cmd, do `cd <path where src is>`
 Then:
-
+Install the packages
 `npm install`
 
+Start the web application
 `npm start`
 
 The backend has to be running for the website's functionality to work else it will just be a page with buttons not working.
