@@ -1,5 +1,3 @@
-# TODO: FILE STRUCTURE, CLONING STEPS
-
 # Keywordly
 Keywordly is a web application that was created to help reduce joblessness in the Philippines, this project introduces a smart and adaptable system that effectively links job opportunities with individuals seeking work. By integrating AI with diverse algorithms, it delivers speedy, accurate, and tailored job recommendations.
 
@@ -26,6 +24,20 @@ Run the server
 
 `python somehashing.py`
 
+# CLONING STEPS
+For compiling the React app it needs npm or Vite which can take a while to download so we are creating a separate repository for the compiled/built version.
+
+But for cloning just download this repository, extract it then open CMD after installing npm:
+You can install npm with the Node.js package by following the instructions here. Or by installing with the installer.
+https://nodejs.org/en/download/
+
+After installing, open cmd, do `cd <path where src is>`
+Then:
+`npm install`
+`npm start`
+
+The backend has to be running for the website's functionality to work else it will just be a page with buttons not working.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
@@ -33,6 +45,9 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 ## Available Scripts
 
 In the project directory, you can run:
+
+### `npm install`
+This installs all needed packages in the package.json required before running npm start to minimize errors.
 
 ### `npm start`
 
