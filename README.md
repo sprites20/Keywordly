@@ -1,3 +1,5 @@
+# TODO: FILE STRUCTURE, CLONING STEPS
+
 # Keywordly
 Keywordly is a web application that was created to help reduce joblessness in the Philippines, this project introduces a smart and adaptable system that effectively links job opportunities with individuals seeking work. By integrating AI with diverse algorithms, it delivers speedy, accurate, and tailored job recommendations.
 
