@@ -47,8 +47,7 @@ Run the server
 `python somehashing.py`
 
 The database is extracted from a Kaggle repository for LinkedIn Job Postings 2023-2024 creating a new database can be done by first downloading the dataset:
-
-[LinkedIn Job Postings](https://www.kaggle.com/datasets/arshkon/linkedin-job-postings)
+[LinkedIn Job Postings (2023-2024)](https://www.kaggle.com/datasets/arshkon/linkedin-job-postings)
 
 Create Database (Optional); just modify the path in the code where the postings.csv is:
 
