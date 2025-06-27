@@ -23,6 +23,13 @@
     text-align: center;
   }
 
+  .application-form h4 {
+    font-size: 1.2em;
+    color: #333;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+
   .form-group {
     margin-bottom: 15px;
     text-align: left;
@@ -87,6 +94,7 @@
   .center-button-container {
     display: flex;
     justify-content: center;
+    margin-bottom: 20px;
   }
   
   .match-jobs-button{
@@ -124,7 +132,7 @@
   }
   
   .box {
-    background-color: #e3f2fd; /* Light blue background for job cards */
+    background-color: #ffffff; /* Light blue background for job cards */
     border-radius: 10px;
     padding: 20px;
     text-align: left; /* Align text to left for readability */

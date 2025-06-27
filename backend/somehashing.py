@@ -176,12 +176,33 @@ def connect_to_duckdb(db_path):
 
     print("Failed to connect after multiple attempts.")
     return None  # Return None if unable to connect
-    
+import zipfile
+import os
+
+zip_file_path = 'linkedin_jobs.zip'
+extracted_file_name = 'linkedin_jobs.db'
+extraction_path = '.' # You can change this to a specific directory if needed
+
+if not os.path.exists(os.path.join(extraction_path, extracted_file_name)):
+    try:
+        with zipfile.ZipFile(zip_file_path, 'r') as zip_ref:
+            zip_ref.extract(extracted_file_name, extraction_path)
+        print(f"Successfully extracted {extracted_file_name} from {zip_file_path}")
+    except FileNotFoundError:
+        print(f"Error: The file {zip_file_path} was not found.")
+    except KeyError:
+        print(f"Error: {extracted_file_name} not found inside {zip_file_path}.")
+    except Exception as e:
+        print(f"An unexpected error occurred: {e}")
+else:
+    print(f"{extracted_file_name} already exists at {extraction_path}. No extraction needed.")
+
 con = connect_to_duckdb('linkedin_jobs.db')
 ht = MMapChainedHashTable()
 
 if __name__ == "__main__":
     # Connect to your DuckDB database
+    #Create some function that will download linkedin index
 
     # Load the first 100 jobs with combined text fields
     jobs = con.execute("""
@@ -206,7 +227,7 @@ if __name__ == "__main__":
     # Create and fill the inverted index
     
     from tqdm import tqdm
-    if False:
+    if True:
         for id, search_text in tqdm(jobs, desc="Processing jobs"):
             process_text_string(ht, search_text, id)
     
@@ -307,19 +328,27 @@ def match_jobs():
     print("Matching: ", data)
     sid = data.get("sid")
     device_uuid = data.get("device_uuid")
+    person_info = data.get("person_info")
     print("Matching: ", sid, device_uuid)
     if not sid:
         return jsonify({"error": "Missing sid"}), 400
     uploaded_files = data.get("uploadedFiles")
-    if not uploaded_files:
-        return jsonify({"error": "No files uploaded"}), 400
+
     page = data.get("page")
     if not page:
         return jsonify({"error": "Missing page number"}), 400
     print("Matching: ", sid, uploaded_files, page)
     # Assume 'resume.pdf' is your resume file
+    resume_text = ""
     if True:
-        resume_text = extract_text_from_pdf(f"uploads/{sid}/{uploaded_files}")
+        if uploaded_files:
+            try:
+                if uploaded_files.endswith(".pdf"):
+                    resume_text = extract_text_from_pdf(f"uploads/{sid}/{uploaded_files}")
+            except:
+                pass
+            
+        resume_text += f"{person_info['skills']} {person_info['experience']} {person_info['preferences']}"
         # Preprocess the resume text
         resume_tokens = preprocess_text(resume_text)
         
