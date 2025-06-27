@@ -9,7 +9,7 @@ Running the demo so no installation would be needed.
 
 [Demo Application](https://sswwk2-3000.csb.app/)
 
-# RUNNING STEPS
+# Running the Web Application
 For compiling the React app it needs npm or Vite which can take a while to download so we are creating a separate repository for the compiled/built version.
 You can clone this repository and extract, then open the build folder and run index.html to open the website.
 
