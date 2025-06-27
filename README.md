@@ -9,13 +9,13 @@ Running the demo so no installation would be needed.
 Requires Python 3.x
 
 Install requirements:
-### `pip install -r requirements.txt`
+`pip install -r requirements.txt`
 
 Create Database (Optional):
-### `python createduck.py'
+`python createduck.py`
 
 Run the server
-### `python somehashing.py`
+`python somehashing.py`
 
 # Getting Started with Create React App
 
