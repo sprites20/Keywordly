@@ -25,7 +25,7 @@ const BoxList = () => {
   const [preferences, setPreferences] = useState('');
   const [visibleJobs, setVisibleJobs] = useState([]);
   const [isMatching, setIsMatching] = useState(false);
-  const [totalPages, setTotalPages] = useState(0);
+  const [totalPages, setTotalPages] = useState(100);
   const [sid, setSid] = useState(null);
   const [socket, setSocket] = useState(null);
   const startIdx = (currentPage - 1) * jobsPerPage;
@@ -33,14 +33,14 @@ const BoxList = () => {
   const [deviceId, setDeviceId] = useState("");
   //visibleJobs = jobData.slice(startIdx, startIdx + jobsPerPage);
 
-  const get_page = async () => {
+  const get_page = async (page_num) => {
     setIsMatching(true);
     setVisibleJobs([]);
     try {
       const payload = {
         sid: sid,
         device_uuid: deviceId,
-        page: currentPage,
+        page: page_num,
       };
       const response = await fetch("http://localhost:5000/api/get_page_api", {
         method: "POST",
@@ -49,7 +49,7 @@ const BoxList = () => {
       });
       
       const result = await response.json();
-      console.log(result);
+      console.log(result, new Date().toLocaleTimeString());
       setTotalPages(result.total_pages);
       const matchedJobs = result.results.map((job, index) => ({
         id: job.doc_id || index + 1,
@@ -71,13 +71,24 @@ const BoxList = () => {
   };
 
   const handleNext = () => {
-    if (currentPage < totalPages) setCurrentPage(currentPage + 1);
-    get_page();
+    setCurrentPage(prev => {
+      if (prev >= totalPages) return prev;   // guard
+      const next = prev + 1;
+      console.log('Current page:', next);
+      get_page(next);
+      return next;
+    });
   };
-
+  
   const handlePrev = () => {
-    if (currentPage > 1) setCurrentPage(currentPage - 1);
-    get_page();
+    setCurrentPage(prev => {
+      if (prev <= 1) return prev;            // guard
+      const next = prev - 1;
+      console.log('Current page:', next);
+      get_page(next);
+      
+      return next;
+    });
     //Request that page in the server
   };
 
@@ -193,13 +204,19 @@ const BoxList = () => {
   const triggerMatchJobs = async (page) => {
     setIsMatching(true);
     setVisibleJobs([]);
+    setCurrentPage(1);
     const pageNum = 1;
     try {
       const payload = {
         sid: sid,
         device_uuid: deviceId,
         page: pageNum,
-        uploadedFiles: uploadedFiles[0] // Assuming you're sending files
+        uploadedFiles: uploadedFiles[0], // Assuming you're sending files
+        person_info: {
+          skills: skills || "",
+          experience: experience || "",
+          preferences: preferences || ""
+        }
         // Remove uploadedFiles if you're not sending files
       };
       const response = await fetch("http://localhost:5000/api/match_jobs", {
@@ -211,7 +228,6 @@ const BoxList = () => {
       const result = await response.json();
       console.log(result);
       setTotalPages(result.total_pages);
-      setCurrentPage(1);
       const matchedJobs = result.results.map((job, index) => ({
         id: job.doc_id || index + 1,
         title: job.title || "No Title Provided", // or any placeholder title
@@ -261,7 +277,8 @@ const BoxList = () => {
   return (
     <div className="box-list-container">
       {!isMatchedJobs && <div className="application-form">
-        <h2>Your Application Details</h2>
+        <h2>Job Matching Platform</h2>
+        <h4>Your Application Details</h4>
         <div className="form-group">
           <label htmlFor="skills">Skills:</label>
           <input 

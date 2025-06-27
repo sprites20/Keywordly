@@ -9,7 +9,6 @@ function App() {
     <Router>
       <div className="App">
         <div className="app-container">
-          <h1>Job Listings</h1>
           <Routes>
             <Route path="/" element={<BoxList />} />
             <Route path="/job" element={<JobViewer />} /> {/* e.g., /job?id=123 */}
