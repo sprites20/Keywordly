@@ -14,7 +14,7 @@ For compiling the React app it needs npm or Vite which can take a while to downl
 
 But for cloning just download this repository, extract it then open CMD after installing npm:
 You can install npm with the Node.js package by following the instructions here. Or by installing with the installer.
-https://nodejs.org/en/download/
+[Node.js + NPM installer](https://nodejs.org/en/download/)
 
 After installing, open cmd, do `cd <path where src is>`
 Then:
@@ -24,7 +24,11 @@ Then:
 The backend has to be running for the website's functionality to work else it will just be a page with buttons not working.
 
 # Running the Backend
-Requires Python 3.x
+Requires Python 3.x which can be downloaded here.
+[Python Downloads](https://www.python.org/downloads/)
+
+Install Python with pip and then run in cmd.
+`cd <path to backend folder>`
 
 Install requirements:
 
