@@ -155,45 +155,69 @@ const BoxList = () => {
   }, [deviceId]);
 
   const handleDrop = async (event) => {
-    event.preventDefault();
-    const files = Array.from(event.dataTransfer.files);
-
-    if (!sid) {
-      alert("Not connected to server. Try again.");
-      return;
-    }
-
-    if (files.length > 0) {
-      setUploadedFiles(files.map(file => file.name));
-      alert(`File(s) dropped: ${files.map(file => file.name).join(', ')}`);
-
-      const formData = new FormData();
-      formData.append("sid", sid);
-      formData.append("device_uuid", deviceId);
-      files.forEach(file => formData.append("files", file));
-
-      try {
-        const response = await fetch("http://localhost:5000/upload", {
-          method: "POST",
-          body: formData
-        });
-
-        const result = await response.json();
-        alert(result.message);
-      } catch (error) {
-        console.error("Upload failed:", error);
-        alert("Upload failed.");
-      }
-    }
-  };
-
-  const handleFileSelect = (event) => {
-    const files = Array.from(event.target.files);
-    if (files.length > 0) {
-      setUploadedFiles(files.map(file => file.name));
-      alert(`File(s) selected: ${files.map(file => file.name).join(', ')}`);
-    }
-  };
+        event.preventDefault();
+        const files = Array.from(event.dataTransfer.files);
+    
+        if (!sid) {
+          alert("Not connected to server. Try again.");
+          return;
+        }
+    
+        if (files.length > 0) {
+          setUploadedFiles(files.map((file) => file.name));
+          alert(`File(s) dropped: ${files.map((file) => file.name).join(", ")}`);
+    
+          const formData = new FormData();
+          formData.append("sid", sid);
+          formData.append("device_uuid", deviceId);
+          files.forEach((file) => formData.append("files", file));
+    
+          try {
+            const response = await fetch("http://localhost:5000/upload", {
+              method: "POST",
+              body: formData,
+            });
+            console.log("Sending File")
+            const result = await response.json();
+            alert(result.message);
+          } catch (error) {
+            console.error("Upload failed:", error);
+            alert("Upload failed.");
+          }
+        }
+      };
+    
+      const handleFileSelect = async (event) => { // Added async keyword
+        const files = Array.from(event.target.files);
+    
+        if (!sid) {
+          alert("Not connected to server. Try again.");
+          return;
+        }
+    
+        if (files.length > 0) {
+          setUploadedFiles(files.map((file) => file.name));
+          alert(`File(s) selected: ${files.map((file) => file.name).join(", ")}`);
+    
+          const formData = new FormData();
+          formData.append("sid", sid);
+          formData.append("device_uuid", deviceId);
+          files.forEach((file) => formData.append("files", file));
+    
+          try {
+            const response = await fetch("http://localhost:5000/upload", {
+              method: "POST",
+              body: formData,
+            });
+            console.log("Sending File");
+            const result = await response.json();
+            alert(result.message);
+          } catch (error) {
+            console.error("Upload failed:", error);
+            alert("Upload failed.");
+          }
+        }
+      };
 
   const triggerFileInput = () => {
     document.getElementById('fileInput').click();
