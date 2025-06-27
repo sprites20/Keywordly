@@ -9,6 +9,20 @@ Running the demo so no installation would be needed.
 
 [Demo Application](https://sswwk2-3000.csb.app/)
 
+# RUNNING STEPS
+For compiling the React app it needs npm or Vite which can take a while to download so we are creating a separate repository for the compiled/built version.
+
+But for cloning just download this repository, extract it then open CMD after installing npm:
+You can install npm with the Node.js package by following the instructions here. Or by installing with the installer.
+https://nodejs.org/en/download/
+
+After installing, open cmd, do `cd <path where src is>`
+Then:
+`npm install`
+`npm start`
+
+The backend has to be running for the website's functionality to work else it will just be a page with buttons not working.
+
 # Running the Backend
 Requires Python 3.x
 
@@ -23,20 +37,6 @@ Create Database (Optional):
 Run the server
 
 `python somehashing.py`
-
-# CLONING STEPS
-For compiling the React app it needs npm or Vite which can take a while to download so we are creating a separate repository for the compiled/built version.
-
-But for cloning just download this repository, extract it then open CMD after installing npm:
-You can install npm with the Node.js package by following the instructions here. Or by installing with the installer.
-https://nodejs.org/en/download/
-
-After installing, open cmd, do `cd <path where src is>`
-Then:
-`npm install`
-`npm start`
-
-The backend has to be running for the website's functionality to work else it will just be a page with buttons not working.
 
 # Getting Started with Create React App
 
