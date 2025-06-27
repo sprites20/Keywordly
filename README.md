@@ -17,12 +17,14 @@ But for cloning just download this repository, extract it then open CMD after in
 You can install npm with the Node.js package by following the instructions here. Or by installing with the installer.
 [Node.js + NPM installer](https://nodejs.org/en/download/)
 
-After installing, open cmd, do `cd <path where src is>`
-Then:
+After installing, open cmd, do `cd <path where src is>` then:
+
 Install the packages
+
 `npm install`
 
 Start the web application
+
 `npm start`
 
 The backend has to be running for the website's functionality to work else it will just be a page with buttons not working.
